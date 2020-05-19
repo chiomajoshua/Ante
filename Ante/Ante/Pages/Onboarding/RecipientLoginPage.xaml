@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local="clr-namespace:Ante.CustomRenderer"
+             xmlns:vm="clr-namespace:Ante.ViewModels.Onboarding"
+             xmlns:props="clr-namespace:Ante.AttachedProperties"
+             mc:Ignorable="d"
+             NavigationPage.HasBackButton="True"
+             x:Class="Ante.Pages.Onboarding.RecipientLoginPage"
+             BackgroundImage="LoginBg.png">
+    <ContentPage.BindingContext>
+        <vm:LoginPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Margin="10,70,0,0" Grid.Row="0" Orientation="Vertical" Padding="20" Spacing="50">
+
+                    <Frame BackgroundColor="White" Margin="20" HasShadow="True" CornerRadius="10">
+                        <StackLayout Orientation="Vertical" Spacing="20">
+                            <Label Text="Recipient Login" FontSize="35" FontFamily="{StaticResource speakBold}" Margin="0,0,10,0" TextColor="#000000"/>
+                            <Grid Margin="0,15,0,0">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="0.5*"/>
+                                    <ColumnDefinition Width="1.5*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>                                    
+                                <Picker Title="Code" TitleColor="#000000" FontSize="15" TextColor="#000000" VerticalOptions="FillAndExpand" ItemsSource="{Binding Countries}" HorizontalOptions="FillAndExpand" ItemDisplayBinding="{Binding code}" props:ControlProperties.PickerSelectedItem="{Binding Country}" SelectedItem="{Binding Country}"/>
+                                    <Image HorizontalOptions="CenterAndExpand" Grid.Column="1" WidthRequest="10" HeightRequest="10" Source="ic_arrow_drop_down.png"/>
+                                </Grid>
+                                <local:CustomEntry MaxLength="10" Grid.Column="1" Keyboard="Numeric" BackgroundColor="White" x:Name="EmailEntry" FontFamily="{StaticResource speakHeavy}" Text="{Binding Email}" VerticalOptions="FillAndExpand" TextColor="#000000" PlaceholderColor="#000000" HorizontalOptions="FillAndExpand" Placeholder="Enter phone number"  FontSize="15" />                            
+                            </Grid>
+                            <Label Text="A 4 digit OTP will be sent via SMS to verify your number" FontSize="14" FontFamily="{StaticResource speakRegular}" Margin="0,15,0,0" TextColor="#000000"/>
+                        </StackLayout>
+                    </Frame>
+
+                    <Image Margin="0,30,0,0" WidthRequest="130" HorizontalOptions="CenterAndExpand" Source="AnteIcon.png"/>
+
+                </StackLayout>
+                <Frame Margin="0,0,0,10" CornerRadius="5" HasShadow="True" WidthRequest="200" BackgroundColor="White" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Grid.Row="1" Padding="20">
+                    <Label Text="Continue" HorizontalOptions="CenterAndExpand" FontSize="16" FontFamily="{StaticResource speakBold}" TextColor="#000000"/>
+                </Frame>
+            </Grid>
+        </ScrollView>
+
+    </ContentPage.Content>
+</ContentPage>

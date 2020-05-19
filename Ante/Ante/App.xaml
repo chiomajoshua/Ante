@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Ante.App">
+    <Application.Resources>
+        <ResourceDictionary>
+            <OnPlatform x:TypeArguments="x:String" x:Key="calibri">
+                <On Platform="Android" Value="Calibri.ttf#Calibri" />
+                <On Platform="iOS" Value="Calibri" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakBold">
+                <On Platform="Android" Value="SpeakOT-Bold.otf#SpeakOT-Bold" />
+                <On Platform="iOS" Value="SpeakOT-Bold" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakBoldItalic">
+                <On Platform="Android" Value="SpeakOT-BoldItalic.otf#SpeakOT-BoldItalic" />
+                <On Platform="iOS" Value="SpeakOT-BoldItalic" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakHeavy">
+                <On Platform="Android" Value="SpeakOT-Heavy.otf#SpeakOT-Heavy" />
+                <On Platform="iOS" Value="SpeakOT-Heavy" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakHeavyItalic">
+                <On Platform="Android" Value="SpeakOT-HeavyItalic.otf#SpeakOT-HeavyItalic" />
+                <On Platform="iOS" Value="SpeakOT-HeavyItalic" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakRegular">
+                <On Platform="Android" Value="SpeakOT-Regular.otf#SpeakOT-Regular" />
+                <On Platform="iOS" Value="SpeakOT-Regular" />
+            </OnPlatform>
+
+            <OnPlatform x:TypeArguments="x:String" x:Key="speakRegularItalic">
+                <On Platform="Android" Value="SpeakOT-RegularItalic.otf#SpeakOT-RegularItalic" />
+                <On Platform="iOS" Value="SpeakOT-RegularItalic" />
+            </OnPlatform>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:xfx="clr-namespace:Xfx;assembly=Xfx.Controls"
+             xmlns:local="clr-namespace:Ante.CustomRenderer"
+             xmlns:vm="clr-namespace:Ante.ViewModels.Onboarding"
+             mc:Ignorable="d"
+             x:Class="Ante.Pages.Onboarding.LoginPagePin"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImage="LoginBg.png">
+    
+    <!--<ContentPage.BindingContext>
+        <vm:LoginPageViewModel />
+    </ContentPage.BindingContext>-->
+
+    <ContentPage.Content>
+        <ScrollView VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+            <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+                <StackLayout Margin="10,70,0,0" Grid.Row="0" Orientation="Vertical" Padding="20" Spacing="50">
+
+                    <StackLayout Margin="20">
+
+                        <Image Margin="0,15,0,0" WidthRequest="130" HorizontalOptions="CenterAndExpand" VerticalOptions="Start" Source="AnteIcon.png"/>
+
+                        <StackLayout Margin="0,70,0,0" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                            <Label Text="Hello {User}!" FontSize="30" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource speakBold}" TextColor="White"/>
+                            <Label Text="Good to see you again." FontSize="16" HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource speakRegular}" TextColor="White"/>
+                            <Frame BackgroundColor="#DE2626" Margin="0,35,0,0" CornerRadius="15" HorizontalOptions="CenterAndExpand" WidthRequest="250">
+                                <StackLayout Spacing="15">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <local:CustomEntry IsPassword="True" HeightRequest="65" TextChanged="PinOne_TextChanged"  HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="0" MaxLength="1" HorizontalTextAlignment="Center" Keyboard="Numeric" x:Name="PinOne" FontFamily="{StaticResource speakBold}" Text="{Binding PinOne}" TextColor="#000000" BackgroundColor="WhiteSmoke" FontSize="30" />
+                                        <local:CustomEntry IsPassword="True" HeightRequest="65" TextChanged="PinTwo_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="1" MaxLength="1" HorizontalTextAlignment="Center" Keyboard="Numeric" x:Name="PinTwo" FontFamily="{StaticResource speakBold}" Text="{Binding PinTwo}" TextColor="#000000" BackgroundColor="WhiteSmoke" FontSize="30" />
+                                        <local:CustomEntry IsPassword="True" HeightRequest="65" TextChanged="PinThree_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="2" MaxLength="1" HorizontalTextAlignment="Center" Keyboard="Numeric" x:Name="PinThree" FontFamily="{StaticResource speakBold}" Text="{Binding PinThree}" TextColor="#000000" BackgroundColor="WhiteSmoke" FontSize="30" />
+                                        <local:CustomEntry IsPassword="True" HeightRequest="65" TextChanged="PinFour_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Grid.Column="3" MaxLength="1" HorizontalTextAlignment="Center" Keyboard="Numeric" x:Name="PinFour" FontFamily="{StaticResource speakBold}" Text="{Binding PinFour}" TextColor="#000000" BackgroundColor="WhiteSmoke" FontSize="30" />
+                                    </Grid>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                        <StackLayout Margin="0,15,0,0" Orientation="Horizontal">                           
+                            <Label HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource speakRegular}" Text="Enter Your Quick Access PIN" FontSize="12" TextColor="#ffffff" />
+                        </StackLayout>
+                    </StackLayout>
+                </StackLayout>
+
+
+                <StackLayout VerticalOptions="EndAndExpand" Grid.Row="1" Orientation="Horizontal" Padding="20">
+                    <StackLayout.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding PasswordLoginPageCommand}"/>
+                    </StackLayout.GestureRecognizers>
+                    <Label HorizontalOptions="CenterAndExpand" FontFamily="{StaticResource speakRegular}" Text="Forgot Pin? Enter Password" FontSize="12" TextColor="#ffffff" />
+                </StackLayout>
+            </Grid>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

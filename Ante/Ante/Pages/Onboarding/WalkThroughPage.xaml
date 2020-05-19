@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:slide="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             xmlns:vm="clr-namespace:Ante.ViewModels.Onboarding"
+             mc:Ignorable="d"
+             NavigationPage.HasNavigationBar="False"
+             x:Class="Ante.Pages.Onboarding.WalkThroughPage">
+    
+    <ContentPage.BindingContext>
+        <vm:WalkThroughPageViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="White">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+
+            <slide:CarouselViewControl ShowIndicators="true" IndicatorsShape="Square" IndicatorsTintColor="Gray" CurrentPageIndicatorTintColor="#DE2626" Grid.Row="0" Orientation="Horizontal" InterPageSpacing="0"  ItemsSource="{Binding Items}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+                <slide:CarouselViewControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid >
+                            <RelativeLayout>
+                               <Image RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width}"
+        RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height}" Aspect="AspectFill" BackgroundColor="Black" Source="{Binding ImagePath}" />
+                            </RelativeLayout>
+                            <StackLayout Padding="40" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                                <Label VerticalOptions="EndAndExpand" Margin="0,0,0,70" TextColor="#DE2626" FontSize="Large" HorizontalTextAlignment="Center" FontFamily="{StaticResource speakHeavy}" Text="{Binding Title}"/>
+                                <Label VerticalOptions="EndAndExpand" Margin="0,0,0,80" TextColor="#DE2626" FontSize="Small" HorizontalTextAlignment="Center" FontFamily="{StaticResource speakHeavy}" Text="{Binding Description}"/>                                
+                            </StackLayout>
+
+                        </Grid>
+                    </DataTemplate>
+                </slide:CarouselViewControl.ItemTemplate>
+            </slide:CarouselViewControl>
+
+            <Frame CornerRadius="50" HeightRequest="20" HorizontalOptions="EndAndExpand" BackgroundColor="#DE2626" Padding="30" Grid.Row="1">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding GetStartedCommand}" />
+                </Frame.GestureRecognizers>
+                <Label Text="Let's Go" FontSize="Medium" FontFamily="{StaticResource speakHeavy}" TextColor="White" HorizontalOptions="CenterAndExpand"  />
+            </Frame>          
+
+        </Grid>
+
+
+    </ContentPage.Content>
+</ContentPage>
